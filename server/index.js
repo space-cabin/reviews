@@ -7,8 +7,8 @@ const app = express();
 const PORT = 4007;
 
 app.use(express.json());
-app.use('/:listingId', express.static(path.resolve(__dirname, '..', 'public')));
-// app.use('/', express.static(path.resolve(__dirname, '..', 'public')));
+// app.use('/:listingId', express.static(path.resolve(__dirname, '..', 'public')));
+app.use('/', express.static(path.resolve(__dirname, '..', 'public')));
 
 app.get('/:listingId', (req, res) => {
   db.Review.find({ listingId: req.params.listingId })
