@@ -5,6 +5,8 @@ UI clone of Airbnb Reviews module
 
 
 ## Getting Started
+npm install
 
 
 ## Running the tests
+npm run test
