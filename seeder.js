@@ -9,7 +9,9 @@ const db = require('./database');
 
 const generateReviews = () => {
   for (let i = 0; i < 100; i += 1) {
-    const rand = Math.floor(Math.random() * (8 - 3) + 3);
+    const min = 3;
+    const max = 8;
+    const rand = Math.floor(Math.random() * (max - min) + min);
     for (let j = 0; j <= rand; j += 1) {
       const user = faker.name.firstName();
       const dateStr = faker.date.recent().toString();
