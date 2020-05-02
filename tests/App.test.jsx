@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 // import axios from 'axios';
-import App from '../client/src/components/App.jsx';
+import App from '../client/src/components/App';
 
 
 describe('Unit test', () => {
