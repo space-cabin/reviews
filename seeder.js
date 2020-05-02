@@ -9,41 +9,42 @@ const db = require('./database');
 
 const generateReviews = () => {
   for (let i = 0; i < 100; i += 1) {
-    const user = faker.name.firstName();
-    const dateStr = faker.date.recent().toString();
-    const sentence = faker.lorem.sentence();
-    const paragraph = faker.lorem.paragraph();
-    const randomReview = faker.random.arrayElement([sentence, paragraph]);
-    const rating1 = faker.finance.amount(2, 5, 1);
-    const rating2 = faker.finance.amount(3, 5, 1);
-    const rating3 = faker.finance.amount(2, 5, 1);
-    const rating4 = faker.finance.amount(2, 5, 1);
-    const rating5 = faker.finance.amount(1, 5, 1);
-    const rating6 = faker.finance.amount(1, 5, 1);
+    const rand = Math.floor(Math.random() * (3 - 10) + 3);
+    for (let j = 0; j <= rand; j += 1) {
+      const user = faker.name.firstName();
+      const dateStr = faker.date.recent().toString();
+      const sentence = faker.lorem.sentence();
+      const paragraph = faker.lorem.paragraph();
+      const randomReview = faker.random.arrayElement([sentence, paragraph]);
+      const rating1 = faker.finance.amount(2, 5, 1);
+      const rating2 = faker.finance.amount(3, 5, 1);
+      const rating3 = faker.finance.amount(2, 5, 1);
+      const rating4 = faker.finance.amount(2, 5, 1);
+      const rating5 = faker.finance.amount(1, 5, 1);
+      const rating6 = faker.finance.amount(1, 5, 1);
+      // let count = 0;
 
+      const newReview = new db.Review({
+        listingId: i,
+        userName: user,
+        date: dateStr,
+        review: randomReview,
+        userPicture: `https://review-services-images-frontend-capstone.s3-us-west-1.amazonaws.com/${i}.jpg`,
+        cleanlinessRating: rating1,
+        accuracyRating: rating2,
+        locationRating: rating3,
+        valueRating: rating4,
+        checkInRating: rating5,
+        communicationRating: rating6,
+      });
 
-    // let count = 0;
-
-    const newReview = new db.Review({
-      listingId: i,
-      userName: user,
-      date: dateStr,
-      review: randomReview,
-      userPicture: `https://review-services-images-frontend-capstone.s3-us-west-1.amazonaws.com/${i}.jpg`,
-      cleanlinessRating: rating1,
-      accuracyRating: rating2,
-      locationRating: rating3,
-      valueRating: rating4,
-      checkInRating: rating5,
-      communicationRating: rating6,
-    });
-
-    newReview.save()
-      .then(() => {
-        // count += 1;
-        if (i === 99) db.disconnect();
-      })
-      .catch((err) => console.log('err: ', err));
+      newReview.save()
+        .then(() => {
+          // count += 1;
+          if (i === 99) db.disconnect();
+        })
+        .catch((err) => console.log('err: ', err));
+    }
   }
 };
 
