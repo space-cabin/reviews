@@ -9,7 +9,7 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <div>hello</div>
+      <div>hello there</div>
     );
   }
 }
