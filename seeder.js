@@ -9,7 +9,7 @@ const db = require('./database');
 
 const generateReviews = () => {
   for (let i = 0; i < 100; i += 1) {
-    const rand = Math.floor(Math.random() * (3 - 10) + 3);
+    const rand = Math.floor(Math.random() * (8 - 3) + 3);
     for (let j = 0; j <= rand; j += 1) {
       const user = faker.name.firstName();
       const dateStr = faker.date.recent().toString();
@@ -22,7 +22,6 @@ const generateReviews = () => {
       const rating4 = faker.finance.amount(2, 5, 1);
       const rating5 = faker.finance.amount(1, 5, 1);
       const rating6 = faker.finance.amount(1, 5, 1);
-      // let count = 0;
 
       const newReview = new db.Review({
         listingId: i,
@@ -40,7 +39,6 @@ const generateReviews = () => {
 
       newReview.save()
         .then(() => {
-          // count += 1;
           if (i === 99) db.disconnect();
         })
         .catch((err) => console.log('err: ', err));
