@@ -1,13 +1,14 @@
 /* eslint-disable no-console */
 const faker = require('faker');
-// const fs = require('fs');
-// const axios = require('axios');
+const fs = require('fs');
+const axios = require('axios');
 const db = require('./database');
 
 
 // write to file figure out file format csv
 
 const generateReviews = () => {
+  let count = 0;
   for (let i = 0; i < 100; i += 1) {
     const min = 3;
     const max = 8;
@@ -30,7 +31,7 @@ const generateReviews = () => {
         userName: user,
         date: dateStr,
         review: randomReview,
-        userPicture: `https://review-services-images-frontend-capstone.s3-us-west-1.amazonaws.com/${i}.jpg`,
+        userPicture: `https://review-services-images-frontend-capstone.s3-us-west-1.amazonaws.com/${i}-${j}.jpg`,
         cleanlinessRating: rating1,
         accuracyRating: rating2,
         locationRating: rating3,
@@ -40,10 +41,16 @@ const generateReviews = () => {
       });
 
       newReview.save()
+        // eslint-disable-next-line no-loop-func
         .then(() => {
-          if (i === 99) db.disconnect();
+          if (count === 99) db.disconnect();
         })
-        .catch((err) => console.log('err: ', err));
+        .catch((err) => console.log('err: ', err))
+        // eslint-disable-next-line no-loop-func
+        .finally(() => {
+          count += 1;
+          if (count === 99) db.disconnect();
+        });
     }
   }
 };
@@ -58,18 +65,28 @@ generateReviews();
 // const getImages = (n) => {
 //   axios({
 //     method: 'get',
-//     url: 'https://media.giphy.com/media/kaBU6pgv0OsPHz2yxy/giphy.mp4',
+//     url: 'https://loremflickr.com/320/240/dog,person',
 //     responseType: 'stream',
 //   })
 //     .then(({ data }) => {
-//       data.pipe(fs.createWriteStream(`../../images/${n}.mp4`));
+//       data.pipe(fs.createWriteStream(`../../images/${n}.jpg`));
 //     })
 //     .catch((err) => console.log(err));
 // };
 
 // const downloadImages = () => {
+//   let ar = [];
 //   for (let i = 0; i < 100; i += 1) {
-//     getImages(i);
+//     for(var j = 0; j < 7; j += 1) {
+//       ar.push(`${i}-${j}`)
+//     }
+//   }
+//   // console.log(ar)
+//   for(let k = 0; k < ar.length; k++) {
+//     if(ar[k] !== '99-6'){
+//     getImages(ar[k]);
+//     // console.log(ar[k])
+//     }
 //   }
 // };
 
