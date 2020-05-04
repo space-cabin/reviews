@@ -1,9 +1,15 @@
 /* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import ReviewList from './ReviewList';
 
+const Title = styled.h2`
+  color: rgb(72, 72, 72);
+  font-family:  Circular, -apple-system, Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+`;
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +27,10 @@ class App extends React.Component {
   }
 
   getReviews() {
-    axios.get('/2')
+    // let listingId = window.location.pathname.slice(1, window.location.pathname.length - 1);
+    // axios.get(`/listing/${listingId}`)
+    // axios.get('/listing/3')
+    axios.get('/3')
       .then(({ data }) => {
         this.setState({ reviews: data });
       })
@@ -32,7 +41,7 @@ class App extends React.Component {
     const { reviews } = this.state;
     return (
       <div>
-        <h2>Reviews</h2>
+        <Title>Reviews</Title>
         <ReviewList reviews={reviews} />
       </div>
     );
