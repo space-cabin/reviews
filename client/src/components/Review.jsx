@@ -1,4 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import {
+  PostContainer, ReviewHeaderContainer, Picture, NameandDateContainer, User, Date, Post, LineBreak,
+// eslint-disable-next-line import/extensions
+} from '../style/ReviewStyle.js';
 
 class Review extends React.Component {
   constructor(props) {
@@ -10,12 +15,17 @@ class Review extends React.Component {
   render() {
     const { review } = this.props;
     return (
-      <div>
-        <div>{ review.userName }</div>
-        <img src={review.userPicture}/>
-        {/* need to fix my seeding script to renmae photos so listing id and then 1 2 3 eg. listing id 2 would now be 21 22 23 ...length of random */}
-      </div>
-
+      <PostContainer>
+        <ReviewHeaderContainer>
+          <Picture alt="user" src={review.userPicture} />
+          <NameandDateContainer>
+            <User>{ review.userName }</User>
+            <Date>{ review.date }</Date>
+          </NameandDateContainer>
+        </ReviewHeaderContainer>
+        <Post>{ review.review }</Post>
+        <LineBreak> </LineBreak>
+      </PostContainer>
     );
   }
 }

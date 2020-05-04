@@ -21,7 +21,8 @@
     "mongo-seed-faker": "^1.0.3",
     "mongoose": "^5.9.11",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -36,9 +37,9 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "jest": "^25.5.4",
     "jest-environment-enzyme": "^7.1.1",
     "jest-enzyme": "^7.1.1",
-    "jest": "^25.5.4",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }

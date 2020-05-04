@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const faker = require('faker');
-const fs = require('fs');
-const axios = require('axios');
+// const fs = require('fs');
+// const axios = require('axios');
 const db = require('./database');
 
 
@@ -15,7 +15,8 @@ const generateReviews = () => {
     const rand = Math.floor(Math.random() * (max - min) + min);
     for (let j = 0; j <= rand; j += 1) {
       const user = faker.name.firstName();
-      const dateStr = faker.date.recent().toString();
+      const year = faker.random.arrayElement(['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020']);
+      const dateStr = `${faker.date.month()} ${year}`;
       const sentence = faker.lorem.sentence();
       const paragraph = faker.lorem.paragraph();
       const randomReview = faker.random.arrayElement([sentence, paragraph]);
@@ -56,6 +57,7 @@ const generateReviews = () => {
 };
 
 generateReviews();
+
 // write to file instead of pushing to an array
 
 // console.log(faker.random.number({min:1, max:5.0}));

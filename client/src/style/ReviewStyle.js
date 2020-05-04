@@ -1,0 +1,71 @@
+import styled from 'styled-components';
+
+export const Picture = styled.img`
+  height: 48px;
+  width: 48px;
+  vertical-align: middle !important;
+  display: block !important;
+  border-radius: 50% !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: rgb(255, 255, 255) !important;
+  overflow: hidden !important;
+  padding: 5px;
+  src: url(${(props) => props.src});
+`;
+
+export const User = styled.div`
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.375em !important;
+  color: rgb(72, 72, 72) !important;
+  padding: 5px;
+  margin: 0px !important
+`;
+
+export const Date = styled.div`
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.28571em !important;
+  color: rgb(72, 72, 72) !important;
+  padding: 5px;
+  margin: 0px !important;
+`;
+
+export const Post = styled.div`
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.375em !important;
+  color: rgb(72, 72, 72) !important;
+  padding: 12px;
+  margin: 0px !important;
+`;
+
+export const PostContainer = styled.div`
+  overflow-wrap: break-word !important;
+  padding: 16px;
+  margin: 0px !important;
+`;
+
+export const ReviewHeaderContainer = styled.div`
+  box-sizing: border-box;
+  display: flex;
+`;
+
+export const NameandDateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const LineBreak = styled.div`
+  border-bottom-width: var(--border-rule-border-width, 1px) !important;
+  border-bottom-color: var(--color-divider, #EBEBEB) !important;
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid !important;
+`;
