@@ -31,7 +31,10 @@ class App extends React.Component {
   render() {
     const { reviews } = this.state;
     return (
-      <ReviewList reviews={reviews} />
+      <div>
+        <h2>Reviews</h2>
+        <ReviewList reviews={reviews} />
+      </div>
     );
   }
 }
