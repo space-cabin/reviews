@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import ReviewList from './ReviewList';
+import Overview from './Overview';
 
 const Title = styled.h2`
   color: rgb(72, 72, 72);
@@ -42,6 +43,7 @@ class App extends React.Component {
     return (
       <div>
         <Title>Reviews</Title>
+        <Overview />
         <ReviewList reviews={reviews} />
       </div>
     );
