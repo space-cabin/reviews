@@ -1,6 +1,9 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Review from './Review';
+
+import { ReviewsContainer } from '../style/ReviewStyle.js';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -12,8 +15,11 @@ class ReviewList extends React.Component {
   render() {
     const { reviews } = this.props;
     return (
-      // eslint-disable-next-line no-underscore-dangle
-      reviews.map((review) => <Review key={review._id} review={review} />)
+      <ReviewsContainer>
+        { // eslint-disable-next-line no-underscore-dangle
+          reviews.map((review) => <Review key={review._id} review={review} />)
+        }
+      </ReviewsContainer>
     );
   }
 }

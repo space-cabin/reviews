@@ -1,11 +1,14 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React from 'react';
 
 import Search from './Search';
+import RatingLevels from './RatingLevels';
 // eslint-disable-next-line import/extensions
 import {
-  Header, LineBreak,
+  Header, TotalRating, AmountofReviews, LineBreak, VerticalLine,
 } from '../style/OverviewStyle.js';
+
 
 class Overview extends React.Component {
   constructor(props) {
@@ -15,11 +18,26 @@ class Overview extends React.Component {
   }
 
   render() {
+    const { reviews } = this.props;
     return (
-      <Header>
-        <Search />
+      <div>
+        <Header>
+          <i className="fas fa-star" />
+          {/* .fa-star:before {
+              content: "\f005";
+              column-fill: blue;
+              color: deepskyblue; */}
+          <TotalRating>4.90</TotalRating>
+          <VerticalLine> </VerticalLine>
+          <AmountofReviews>
+            { reviews.length }
+          </AmountofReviews>
+          reviews
+          <Search />
+        </Header>
         <LineBreak> </LineBreak>
-      </Header>
+        <RatingLevels reviews={reviews} />
+      </div>
     );
   }
 }
