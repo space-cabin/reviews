@@ -93,8 +93,9 @@ export const RatingLevelContainer = styled.div`
 export const RatingContainer = styled.div`
   display:flex;
   flex-direction: column;
-  border: 2px solid black;
+  // border: 2px solid black;
   margin: 0px;
+  width: 36.6em;
 `;
 
 export const NameandRating = styled.div`
@@ -129,21 +130,48 @@ export const ProgressContainer = styled.div`
 `;
 
 export const BaseBox = styled.div`
-  height: 102%;
+  height: 103%;
   position: absolute;
   left: 0;
   top: 0;
   border-radius: 3px;
-  transition: width 10s ease-in-out;
+  transition: width 1s ease-in-out;
   width: 50px;
 `;
 
 export const Background = styled(BaseBox)`
   background: #D8D8D8;
   width: 100%;
+  height:103%
 `;
 
 export const ProgressStatus = styled(BaseBox)`
   background: rgb(0, 132, 137);
   width: ${({ percent }) => percent}%;
+`;
+
+//TABLE
+export const table6Cols = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  margin: 0 0 3em 0;
+  padding: 0;
+  padding: 0;
+  width: 16.6%;
+`;
+
+export const RtableCell = styled.div`
+  box-sizing: border-box;
+  flex-grow: 1;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  color: rgb(72, 72, 72);
+  width: 100%;  // Default to full width
+  padding: 0.8em 0.2em 1.2em 0.1em;
+  overflow: hidden; // Or flex might break
+  list-style: none;
+  border: solid @bw white;
+  font-size: 12px;
+  width: 16.6%;
+  display: inline-flex;
 `;
