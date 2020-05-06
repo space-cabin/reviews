@@ -1,9 +1,11 @@
 import React from 'react';
+// import {Star} from '@styled-icons/entypo/Star';
 
 import {
   SearchForm, SearchReviews, SearchButton,
 // eslint-disable-next-line import/extensions
 } from '../style/OverviewStyle.js';
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -24,6 +26,7 @@ class Search extends React.Component {
 
       <SearchForm>
         <SearchReviews
+          type="text"
           placeholder="Search reviews"
           onChange={this.handleChange}
          // eslint-disable-next-line react/jsx-closing-bracket-location

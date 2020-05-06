@@ -10,7 +10,16 @@ const Title = styled.h2`
   color: rgb(72, 72, 72);
   font-family:  Circular, -apple-system, Roboto, "Helvetica Neue", sans-serif;
   font-weight: 500;
+  padding: 5px;
 `;
+
+const Container = styled.div`
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  margin-left: 4%;
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -41,11 +50,11 @@ class App extends React.Component {
   render() {
     const { reviews } = this.state;
     return (
-      <div>
+      <Container>
         <Title>Reviews</Title>
-        <Overview />
+        <Overview reviews={reviews} />
         <ReviewList reviews={reviews} />
-      </div>
+      </Container>
     );
   }
 }
