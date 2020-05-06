@@ -1,10 +1,18 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import styled from 'styled-components';
-// import @styled-icons/boxicons-logos/Airbnb
-// import {Search} from '@styled-icons/feather/Search';
 
-// export const SearchIcon = styled(Search)`
-// color:red;
-// `;
+import { Search } from '@styled-icons/evil/Search';
+import { Star } from '@styled-icons/entypo/Star';
+
+export const SearchIcon = styled(Search)`
+  width: 18px;
+  color: rgb(170, 170, 170);
+`;
+
+export const StarRating = styled(Star)`
+  width: 45px;
+  color: rgb(0, 132, 137);
+`;
 
 export const OverviewContainer = styled.div`
   display: flex;
@@ -20,6 +28,15 @@ export const Header = styled.div`
   line-height: 1.44444em !important;
   font-color: rgb(72, 72, 72) !important;
   margin: 0px !important;
+`;
+
+// RATING
+export const RatingContainer = styled.div`
+  display:flex;
+  flex-direction: column;
+  // border: 2px solid black;
+  margin: 0px;
+  width: 36.6em;
 `;
 
 export const TotalRating = styled.div`
@@ -44,13 +61,17 @@ export const LineBreak = styled.div`
 `;
 
 // SEARCH
+export const SearchInnerWrapper = styled.div`
+  display: flex;
+  align-items: end;
+`;
+
 export const SearchReviews = styled.input`
   margin-bottom: 8px !important;
   font-size: 12px
   line-height: 22px !important;
-  height: 2rem;
+  height: 1.2rem;
   width: 100%;
-  // font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
   font-weight: 400;
   color: rgb(72, 72, 72) !important;
   border-width: 1px !important;
@@ -58,6 +79,7 @@ export const SearchReviews = styled.input`
   border-color: rgb(235, 235, 235) !important;
   border-radius: 4px !important;
   outline: none;
+  padding: 4px;
   :focus {
     border-width: 1.5px;
     border-color: rgb(0, 132, 137) !important;
@@ -82,44 +104,10 @@ export const SearchForm = styled.form`
   border-color: #EBEBEB !important;
   width: 76vh;
   padding: 5px;
+  margin: 0em;
+  font: 400 11px system-ui;
+  padding: 1px 7px 2px;
   margin-left: 43%;
-`;
-
-// RATING
-export const RatingLevelContainer = styled.div`
-  display:flex;
-`;
-
-export const RatingContainer = styled.div`
-  display:flex;
-  flex-direction: column;
-  // border: 2px solid black;
-  margin: 0px;
-  width: 36.6em;
-`;
-
-export const NameandRating = styled.div`
-  display: flex;
-  width: 46%;
-`;
-
-export const Row = styled.div`
-  display: flex;
-  width: 100%;
-`;
-
-export const NameandProgress = styled.div`
-  display: flex;
-  width: 100% !important;
-  height: 50%;
-  align-items: center;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 14px;
-  overflow-wrap: break-word !important;
-  font-weight: 300 !important;
-  line-height: 6.375em !important;
-  color: rgb(72, 72, 72) !important;
-  justify-content: stretch;
 `;
 
 // PROGRESS BAR
@@ -150,7 +138,7 @@ export const ProgressStatus = styled(BaseBox)`
   width: ${({ percent }) => percent}%;
 `;
 
-//TABLE
+// TABLE
 export const table6Cols = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -166,7 +154,7 @@ export const RtableCell = styled.div`
   flex-grow: 1;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   color: rgb(72, 72, 72);
-  width: 100%;  // Default to full width
+  width: 100%;  // default to full width
   padding: 0.8em 0.2em 1.2em 0.1em;
   overflow: hidden; // Or flex might break
   list-style: none;

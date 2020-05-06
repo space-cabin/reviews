@@ -2,16 +2,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-// import ProgressBar from './ProgressBar';
-
 import {
-  // RatingLevelContainer,
-  // NameandProgress,
   ProgressContainer,
   Background,
   ProgressStatus,
-  // NameandRating,
-  // Row,
   table6Cols,
   RtableCell,
 } from '../style/OverviewStyle.js';
@@ -24,17 +18,7 @@ class Rating extends React.Component {
     this.state = {};
   }
 
-
   render() {
-    // const {
-    //   accuracyRating,
-    //   cleanlinessRating,
-    //   locationRating,
-    //   valueRating,
-    //   checkInRating,
-    //   communicationRating,
-    //   // eslint-disable-next-line react/destructuring-assignment
-    // } = this.props.rating;
     const {
       avgCheckin,
       avgCleanliness,
@@ -42,8 +26,8 @@ class Rating extends React.Component {
       avgLocation,
       avgAccuracy,
       avgValue,
-      total,
     } = this.props;
+
     // width*review/5
     const checkinPercent = (100 * avgCheckin) / 5;
     const cleanlinessPercent = (100 * avgCleanliness) / 5;
@@ -131,9 +115,6 @@ class Rating extends React.Component {
         <RtableCell>
           {avgLocation.toFixed(1)}
         </RtableCell>
-
-
-
       </table6Cols>
     );
   }

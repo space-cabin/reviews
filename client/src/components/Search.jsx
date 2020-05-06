@@ -1,9 +1,12 @@
+/* eslint-disable import/extensions */
 import React from 'react';
-// import {Star} from '@styled-icons/entypo/Star';
 
 import {
-  SearchForm, SearchReviews, SearchButton,
-// eslint-disable-next-line import/extensions
+  SearchIcon,
+  SearchForm,
+  SearchReviews,
+  SearchButton,
+  SearchInnerWrapper,
 } from '../style/OverviewStyle.js';
 
 
@@ -23,17 +26,17 @@ class Search extends React.Component {
 
   render() {
     return (
-
       <SearchForm>
-        <SearchReviews
-          type="text"
-          placeholder="Search reviews"
-          onChange={this.handleChange}
-         // eslint-disable-next-line react/jsx-closing-bracket-location
-         />
-        <SearchButton>
-          <i className="fas fa-search"> </i>
-        </SearchButton>
+        <SearchInnerWrapper>
+          <SearchReviews
+            type="text"
+            placeholder="Search reviews"
+            onChange={this.handleChange}
+          />
+          <SearchButton>
+            <SearchIcon />
+          </SearchButton>
+        </SearchInnerWrapper>
       </SearchForm>
     );
   }
