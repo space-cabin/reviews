@@ -5,13 +5,17 @@ import { Search } from '@styled-icons/evil/Search';
 import { Star } from '@styled-icons/entypo/Star';
 
 export const SearchIcon = styled(Search)`
-  width: 18px;
+  width: 13px;
   color: rgb(170, 170, 170);
 `;
 
 export const StarRating = styled(Star)`
-  width: 45px;
+  width: 13px;
   color: rgb(0, 132, 137);
+`;
+
+export const StarContainer = styled.div`
+  display: flex;
 `;
 
 export const OverviewContainer = styled.div`
@@ -36,7 +40,8 @@ export const RatingContainer = styled.div`
   flex-direction: column;
   // border: 2px solid black;
   margin: 0px;
-  width: 36.6em;
+  width: 40.6em;
+
 `;
 
 export const TotalRating = styled.div`
@@ -144,7 +149,6 @@ export const table6Cols = styled.div`
   flex-wrap: wrap;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   margin: 0 0 3em 0;
-  padding: 0;
   padding: 0;
   width: 16.6%;
 `;
