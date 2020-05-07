@@ -23,7 +23,7 @@ class Review extends React.Component {
             <Date>{ review.date }</Date>
           </NameandDateContainer>
         </ReviewHeaderContainer>
-        <Post>{ review.review }</Post>
+        <Post className="test">{ review.review }</Post>
         <LineBreak> </LineBreak>
       </PostContainer>
     );

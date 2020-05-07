@@ -7,7 +7,7 @@ import Search from './Search';
 import RatingLevels from './RatingLevels';
 // eslint-disable-next-line import/extensions
 import {
-  StarRating, Header, TotalRating, AmountofReviews, LineBreak, VerticalLine,
+  StarRating, StarContainer, Header, TotalRating, AmountofReviews, LineBreak, VerticalLine,
 } from '../style/OverviewStyle.js';
 
 
@@ -60,7 +60,9 @@ class Overview extends React.Component {
     return (
       <div>
         <Header>
-          <StarRating />
+          <StarContainer>
+            <StarRating />
+          </StarContainer>
           <TotalRating>{total.toFixed(1)}</TotalRating>
           <VerticalLine> </VerticalLine>
           <AmountofReviews>
