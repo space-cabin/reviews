@@ -8,12 +8,17 @@ const PORT = 4007;
 
 app.use(express.json());
 
-app.use('/', express.static(path.resolve(__dirname, '..', 'public')));
-// app.use('/:listingId', express.static(path.resolve(__dirname, '..', 'public')));
+app.use('/:id', express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/:listingId', (req, res) => {
+app.get('/', (req, res) => {
+  res.redirect(301, 'http://localhost:4007/index.html');
+});
+
+app.get('/listing/:listingId', (req, res) => {
   db.Review.find({ listingId: req.params.listingId })
-    .then((data) => res.send(data))
+    .then((data) => {
+      res.send(data);
+    })
     .catch((err) => res.status(500).send(err));
 });
 

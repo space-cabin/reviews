@@ -28,23 +28,27 @@ class App extends React.Component {
       reviews: [],
     };
 
-    this.getReviews = this.getReviews.bind(this);
+    // this.getReviews = this.getReviews.bind(this);
   }
 
   componentDidMount() {
     // console.log(window.location.pathname);
-    this.getReviews();
-  }
+    let listingId;
+    const { pathname } = window.location;
 
-  getReviews() {
-    // let listingId = window.location.pathname.slice(1, window.location.pathname.length - 1);
-    // axios.get(`/listing/${listingId}`)
-    // axios.get('/listing/3')
-    axios.get('/3')
-      .then(({ data }) => {
-        this.setState({ reviews: data });
-      })
-      .catch((err) => console.log(err));
+    if (pathname === '/index.html/') {
+      listingId = 0;
+    } else {
+      listingId = pathname.slice(1, pathname.length - 1);
+    }
+
+    if (Number(listingId) !== 'NaN') {
+      axios.get(`/listing/${listingId}`)
+        .then(({ data }) => {
+          this.setState({ reviews: data });
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
   render() {
