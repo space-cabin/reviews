@@ -93,8 +93,8 @@ class App extends React.Component {
     // });
 
     console.log('made it')
-    // const {clicked} = this.state;
-    this.setState({ clicked: !click, displayedReviews: reviews, hasReview: null });
+    const {clicked, isSearching} = this.state;
+    this.setState({ clicked: !click, displayedReviews: reviews, hasReview: null, isSearching: !isSearching });
   }
 
 

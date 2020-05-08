@@ -103,7 +103,8 @@ class Overview extends React.Component {
       </div>
     );
 
-    const searchResults = hasReview === false ? noReviews : someReviews;
+    let searchResults;
+    searchResults = hasReview === false ? noReviews : someReviews;
 
     return (
       <div>
@@ -122,20 +123,22 @@ class Overview extends React.Component {
         <LineBreak> </LineBreak>
 
         {/* if clicked is true then render ratinglevels  */}
-        {clicked === true
-          ? (
-            <RatingLevels
-              avgCheckin={avgCheckin}
-              avgCleanliness={avgCleanliness}
-              avgCommunication={avgCommunication}
-              avgLocation={avgLocation}
-              avgAccuracy={avgAccuracy}
-              avgValue={avgValue}
-            />
-          ) : true}
+
+
+        {isSearching ? searchResults : (
+          <RatingLevels
+            avgCheckin={avgCheckin}
+            avgCleanliness={avgCleanliness}
+            avgCommunication={avgCommunication}
+            avgLocation={avgLocation}
+            avgAccuracy={avgAccuracy}
+            avgValue={avgValue}
+          />
+        )}
+
         {/* if the user searched then show the results otherwise display rating levels */}
 
-        {isSearching === true ? searchResults
+        {/* {isSearching ? searchResults
           : (
             <RatingLevels
               avgCheckin={avgCheckin}
@@ -145,7 +148,19 @@ class Overview extends React.Component {
               avgAccuracy={avgAccuracy}
               avgValue={avgValue}
             />
-          )}
+          )} */}
+
+        {/* {isSearching && !clicked ? searchResults
+          : (
+            <RatingLevels
+              avgCheckin={avgCheckin}
+              avgCleanliness={avgCleanliness}
+              avgCommunication={avgCommunication}
+              avgLocation={avgLocation}
+              avgAccuracy={avgAccuracy}
+              avgValue={avgValue}
+            />
+          )} */}
 
 
         {/* <RatingLevels
