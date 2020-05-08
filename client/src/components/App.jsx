@@ -76,12 +76,15 @@ class App extends React.Component {
     }
   }
 
-  handleClick() {
-    // const { reviews } = this.state;
+  handleClick(click) {
+    const { reviews } = this.state;
     // this.setState({
     //   reviews,
     // });
-    this.setState({ clicked: true });
+
+    console.log('made it')
+    // const {clicked} = this.state;
+    this.setState({ clicked: !click, displayedReviews: reviews });
   }
 
 

@@ -78,22 +78,29 @@ class Overview extends React.Component {
     }
 
     const noReviews = (
+      // <div>
       <NoneFound>
-        None of our guests have mentioned
-        <Word>{searchQuery}</Word>
-        <GoBack>Back to all reviews</GoBack>
+        <Wrapper>
+          None of our guests have mentioned
+          <Word>{`"${searchQuery}"`}</Word>
+        </Wrapper>
+        <GoBack onClick={() => handleClick(clicked)}>Back to all reviews</GoBack>
       </NoneFound>
+      // {/* </div> */}
     );
 
     const someReviews = (
-      <SomeFound>
-        <Wrapper>
-          {` ${displayedReviews.length}
-            ${guests} ${have} mentioned `}
-          <Word>{`"${searchQuery}"`}</Word>
-        </Wrapper>
-        <GoBack>Back to all reviews</GoBack>
-      </SomeFound>
+      <div>
+        <SomeFound>
+          <Wrapper>
+            {`${displayedReviews.length}
+              ${guests} ${have} mentioned `}
+            <Word>{`"${searchQuery}"`}</Word>
+          </Wrapper>
+          <GoBack onClick={() => handleClick(clicked)}>Back to all reviews</GoBack>
+        </SomeFound>
+        <LineBreak> </LineBreak>
+      </div>
     );
 
     const searchResults = hasReview === false ? noReviews : someReviews;
@@ -113,7 +120,19 @@ class Overview extends React.Component {
           <Search onSearch={this.props.onSearch} />
         </Header>
         <LineBreak> </LineBreak>
-        {/* {hasReview === false ? none : some} */}
+        {/* if clicked is true then render ratinglevels  */}
+        {clicked === true ?
+        (
+          <RatingLevels
+            avgCheckin={avgCheckin}
+            avgCleanliness={avgCleanliness}
+            avgCommunication={avgCommunication}
+            avgLocation={avgLocation}
+            avgAccuracy={avgAccuracy}
+            avgValue={avgValue}
+          />
+        ) : false }
+        {/* if the user searched then show the results otherwise display rating levels */}
         {isSearching === true ? searchResults
           : (
             <RatingLevels
@@ -125,6 +144,7 @@ class Overview extends React.Component {
               avgValue={avgValue}
             />
           )}
+
 
         {/* <RatingLevels
           avgCheckin={avgCheckin}

@@ -35,6 +35,8 @@ export const Header = styled.div`
 `;
 
 export const NoneFound = styled.div`
+  display: flex;
+  justify-content: space-between;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   overflow-wrap: break-word !important;
   font-size: 12px !important;
@@ -45,30 +47,34 @@ export const NoneFound = styled.div`
 `;
 
 export const SomeFound = styled.div`
-display: flex;
-justify-content: space-between;
-font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-overflow-wrap: break-word !important;
-font-size: 12px !important;
-font-weight: 300 !important;
-line-height: 1.28571em !important;
-color: rgb(72, 72, 72) !important;
-margin: 0px !important;
+  display: flex;
+  justify-content: space-between;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  overflow-wrap: break-word !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
+  line-height: 1.28571em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
 `;
 export const Word = styled.span`
   font-size: 13px !important;
   font-weight: 400 !important;
+  padding-left: 4px;
 `;
 
 export const GoBack = styled.a`
-color: #008489 !important;
-    font-family: var(--font-font_family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
-    font-size: 12px !important;
-font-weight: 400 !important;
+  color: #008489 ;
+  font-family: var(--font-font_family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+  cursor: pointer;
 }
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+export const Container = styled.div`
   display: flex;
 `;
 
@@ -102,6 +108,9 @@ export const LineBreak = styled.div`
   border-bottom-width: 1px !important;
   border-bottom-color: #EBEBEB !important;
   border-bottom-style: solid !important;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
 `;
 
 // SEARCH
