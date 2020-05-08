@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React from 'react';
 
@@ -29,9 +30,9 @@ class Search extends React.Component {
   }
 
   handleSearch(e) {
-    // const { searchQuery } = this.state;
+    const { onSearch } = this.props;
     e.preventDefault();
-    this.props.onSearch(this.state);
+    onSearch(this.state);
     this.intializeState();
   }
 

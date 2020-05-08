@@ -24,25 +24,18 @@ class ReviewList extends React.Component {
   render() {
     const {
       searchQuery,
-      hasSearchedReview,
+      hasReview,
       length,
       reviews,
       clicked,
       handleClick,
     } = this.props;
 
-    // if (hasSearchedReview === false) {
+    // if (hasReview === false) {
     //   return (
     //     <div>
     //       {`None of our guests have mentioned ${searchQuery}`}
     //       <button type="button" onClick={handleClick}>Back to all reviews</button>
-    //       {clicked && (
-    //         <ReviewsContainer>
-    //           {
-    //             reviews.map((review) => <Review key={review._id} review={review} />)
-    //           }
-    //         </ReviewsContainer>
-    //       )}
     //     </div>
     //   );
     // }

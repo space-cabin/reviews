@@ -40,7 +40,6 @@ class App extends React.Component {
 
     this.onSearch = this.onSearch.bind(this);
     this.handleClick = this.handleClick.bind(this);
-
   }
 
   componentDidMount() {
@@ -65,12 +64,16 @@ class App extends React.Component {
 
   onSearch({ searchQuery }) {
     const searchedReviews = [];
-    const { reviews } = this.state;
+    const { reviews, hasReview } = this.state;
     // eslint-disable-next-line guard-for-in
     for (const currentReview of reviews) {
       if (currentReview.review.toLowerCase().includes(searchQuery.toLowerCase())) {
         searchedReviews.push(currentReview);
       }
+    }
+
+    if (hasReview === false) {
+      this.setState({ hasReview: true });
     }
 
     this.setState({ searchQuery, isSearching: true });
@@ -79,6 +82,8 @@ class App extends React.Component {
     } else {
       this.setState({ hasReview: false });
     }
+
+
   }
 
   handleClick(click) {

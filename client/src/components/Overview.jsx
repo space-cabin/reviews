@@ -117,22 +117,24 @@ class Overview extends React.Component {
             {reviews.length}
           </AmountofReviews>
           reviews
-          <Search onSearch={this.props.onSearch} />
+          <Search onSearch={onSearch} />
         </Header>
         <LineBreak> </LineBreak>
+
         {/* if clicked is true then render ratinglevels  */}
         {clicked === true
-        ? (
-          <RatingLevels
-            avgCheckin={avgCheckin}
-            avgCleanliness={avgCleanliness}
-            avgCommunication={avgCommunication}
-            avgLocation={avgLocation}
-            avgAccuracy={avgAccuracy}
-            avgValue={avgValue}
-          />
-        ) : true }
+          ? (
+            <RatingLevels
+              avgCheckin={avgCheckin}
+              avgCleanliness={avgCleanliness}
+              avgCommunication={avgCommunication}
+              avgLocation={avgLocation}
+              avgAccuracy={avgAccuracy}
+              avgValue={avgValue}
+            />
+          ) : true}
         {/* if the user searched then show the results otherwise display rating levels */}
+
         {isSearching === true ? searchResults
           : (
             <RatingLevels
