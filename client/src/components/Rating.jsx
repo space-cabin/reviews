@@ -6,7 +6,7 @@ import {
   ProgressContainer,
   Background,
   ProgressStatus,
-  table6Cols,
+  Table6Cols,
   RtableCell,
 } from '../style/OverviewStyle.js';
 
@@ -37,7 +37,7 @@ class Rating extends React.Component {
     const locationPercent = (100 * avgLocation) / 5;
 
     return (
-      <table6Cols>
+      <Table6Cols>
         <RtableCell>
           Checkin
         </RtableCell>
@@ -115,7 +115,7 @@ class Rating extends React.Component {
         <RtableCell>
           {avgLocation.toFixed(1)}
         </RtableCell>
-      </table6Cols>
+      </Table6Cols>
     );
   }
 }

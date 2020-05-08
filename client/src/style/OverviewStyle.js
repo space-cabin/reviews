@@ -84,10 +84,7 @@ export const Container = styled.div`
 export const RatingContainer = styled.div`
   display:flex;
   flex-direction: column;
-  // border: 2px solid black;
   margin: 0px;
-  width: 40.6em;
-
 `;
 
 export const TotalRating = styled.div`
@@ -193,13 +190,20 @@ export const ProgressStatus = styled(BaseBox)`
 `;
 
 // TABLE
-export const table6Cols = styled.div`
+export const Table6Cols = styled.div`
+  // display: flex;
+  // flex-wrap: wrap;
+  // font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  // margin: 0 0 3em 0;
+  // padding: 0;
+  width: 117%;
+
   display: flex;
-  flex-wrap: wrap;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-  margin: 0 0 3em 0;
-  padding: 0;
-  width: 16.6%;
+  flex-direction: column;
+  display: inline-flex;
+  flex-flow: wrap;
+  // margin-right: -100px;
+  align-items: center;
 `;
 
 export const RtableCell = styled.div`

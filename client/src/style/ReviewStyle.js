@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Picture = styled.img`
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   vertical-align: middle !important;
   display: block !important;
   border-radius: 50% !important;
@@ -69,9 +69,10 @@ export const ReviewsContainer = styled.div`
 `;
 
 export const LineBreak = styled.div`
-  border-bottom-width: var(--border-rule-border-width, 1px) !important;
-  border-bottom-color: var(--color-divider, #EBEBEB) !important;
-  border-bottom-width: 1px !important;
-  border-bottom-style: solid !important;
-  margin-top: 4%;
+  border-bottom-width:  1px;
+  border-bottom-color: #EBEBEB;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin-top: 3%;
+  margin-bottom: 3%;
 `;

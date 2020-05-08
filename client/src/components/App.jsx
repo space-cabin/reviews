@@ -19,6 +19,11 @@ const Container = styled.div`
   width: auto;
   flex-direction: column;
   margin-left: 4%;
+  max-width: 696px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
 `;
 
 class App extends React.Component {
