@@ -8,8 +8,18 @@ import Search from './Search';
 import RatingLevels from './RatingLevels';
 // eslint-disable-next-line import/extensions
 import {
-  StarRating, StarContainer, Header, TotalRating, AmountofReviews, LineBreak, VerticalLine, NoneFound,
-  SomeFound, Word, GoBack, Wrapper,
+  StarRating,
+  StarContainer,
+  Header,
+  TotalRating,
+  AmountofReviews,
+  LineBreak,
+  VerticalLine,
+  NoneFound,
+  SomeFound,
+  Word,
+  GoBack,
+  Wrapper,
 } from '../style/OverviewStyle.js';
 
 
@@ -27,7 +37,6 @@ class Overview extends React.Component {
       isSearching,
       searchQuery,
       hasReview,
-      length,
       handleClick,
       clicked,
       displayedReviews,
@@ -78,7 +87,6 @@ class Overview extends React.Component {
     }
 
     const noReviews = (
-      // <div>
       <NoneFound>
         <Wrapper>
           None of our guests have mentioned
@@ -86,7 +94,6 @@ class Overview extends React.Component {
         </Wrapper>
         <GoBack onClick={() => handleClick(clicked)}>Back to all reviews</GoBack>
       </NoneFound>
-      // {/* </div> */}
     );
 
     const someReviews = (
@@ -103,8 +110,7 @@ class Overview extends React.Component {
       </div>
     );
 
-    let searchResults;
-    searchResults = hasReview === false ? noReviews : someReviews;
+    const searchResults = hasReview === false ? noReviews : someReviews;
 
     return (
       <div>
@@ -123,8 +129,6 @@ class Overview extends React.Component {
         <LineBreak> </LineBreak>
 
         {/* if clicked is true then render ratinglevels  */}
-
-
         {isSearching ? searchResults : (
           <RatingLevels
             avgCheckin={avgCheckin}
@@ -135,42 +139,6 @@ class Overview extends React.Component {
             avgValue={avgValue}
           />
         )}
-
-        {/* if the user searched then show the results otherwise display rating levels */}
-
-        {/* {isSearching ? searchResults
-          : (
-            <RatingLevels
-              avgCheckin={avgCheckin}
-              avgCleanliness={avgCleanliness}
-              avgCommunication={avgCommunication}
-              avgLocation={avgLocation}
-              avgAccuracy={avgAccuracy}
-              avgValue={avgValue}
-            />
-          )} */}
-
-        {/* {isSearching && !clicked ? searchResults
-          : (
-            <RatingLevels
-              avgCheckin={avgCheckin}
-              avgCleanliness={avgCleanliness}
-              avgCommunication={avgCommunication}
-              avgLocation={avgLocation}
-              avgAccuracy={avgAccuracy}
-              avgValue={avgValue}
-            />
-          )} */}
-
-
-        {/* <RatingLevels
-          avgCheckin={avgCheckin}
-          avgCleanliness={avgCleanliness}
-          avgCommunication={avgCommunication}
-          avgLocation={avgLocation}
-          avgAccuracy={avgAccuracy}
-          avgValue={avgValue}
-        /> */}
       </div>
     );
   }

@@ -43,7 +43,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(window.location.pathname);
     let listingId;
     const { pathname } = window.location;
 
@@ -82,21 +81,19 @@ class App extends React.Component {
     } else {
       this.setState({ hasReview: false });
     }
-
-
   }
 
   handleClick(click) {
     const { reviews } = this.state;
-    // this.setState({
-    //   reviews,
-    // });
 
-    console.log('made it')
-    const {clicked, isSearching} = this.state;
-    this.setState({ clicked: !click, displayedReviews: reviews, hasReview: null, isSearching: !isSearching });
+    const { isSearching } = this.state;
+    this.setState({
+      clicked: !click,
+      displayedReviews: reviews,
+      hasReview: null,
+      isSearching: !isSearching,
+    });
   }
-
 
   render() {
     const {
@@ -108,23 +105,6 @@ class App extends React.Component {
       isSearching,
     } = this.state;
 
-    // if (displayedReviews.length >= 1) {
-    //   return (
-    //     <Container>
-    //       <Title>Reviews</Title>
-    //       <Overview onSearch={this.onSearch} reviews={reviews} />
-
-    //       <ReviewList
-    //         searchQuery={searchQuery}
-    //         hasSearchedReview={hasSearchedReview}
-    //         reviews={displayedReviews}
-    //         length={reviews.length}
-    //         handleClick={this.handleClick}
-    //         clicked={clicked}
-    //       />
-    //     </Container>
-    //   );
-    // }
     return (
       <Container>
         <Title>Reviews</Title>
@@ -141,13 +121,8 @@ class App extends React.Component {
         />
 
         <ReviewList
-          searchQuery={searchQuery}
           hasReview={hasReview}
           reviews={displayedReviews.length === 0 ? reviews : displayedReviews}
-        // length={reviews.length}
-        handleClick={this.handleClick}
-        clicked={clicked}
-        displayedReviews={displayedReviews}
         />
       </Container>
     );
