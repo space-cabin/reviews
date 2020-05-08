@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -9,14 +10,67 @@ class ReviewList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { };
+    this.state = {
+      // reviews: [],
+    };
+
+    // this.handleClick = this.handleClick.bind(this);
   }
 
+  // handleClick() {
+  //   this.setState({reviews: })
+  // }
+
   render() {
-    const { reviews } = this.props;
+    const {
+      searchQuery,
+      hasSearchedReview,
+      length,
+      reviews,
+      clicked,
+      handleClick,
+    } = this.props;
+
+    // if (hasSearchedReview === false) {
+    //   return (
+    //     <div>
+    //       {`None of our guests have mentioned ${searchQuery}`}
+    //       <button type="button" onClick={handleClick}>Back to all reviews</button>
+    //       {clicked && (
+    //         <ReviewsContainer>
+    //           {
+    //             reviews.map((review) => <Review key={review._id} review={review} />)
+    //           }
+    //         </ReviewsContainer>
+    //       )}
+    //     </div>
+    //   );
+    // }
+
+    // if (reviews.length !== length) {
+    //   return (
+    //     <ReviewsContainer>
+    //       <div>
+    //         <div>{`${reviews.length} have mentioned ${searchQuery}`}</div>
+    //         <button type="button" onClick={handleClick}>Back to all reviews</button>
+    //         {clicked && (
+    //           <ReviewsContainer>
+    //             {
+    //               reviews.map((review) => <Review key={review._id} review={review} />)
+    //             }
+    //           </ReviewsContainer>
+    //         )}
+    //       </div>
+    //       {
+    //         reviews.map((review) => <Review key={review._id} review={review} />)
+    //       }
+    //     </ReviewsContainer>
+    //   );
+    // }
+
     return (
       <ReviewsContainer>
-        { // eslint-disable-next-line no-underscore-dangle
+        {
           reviews.map((review) => <Review key={review._id} review={review} />)
         }
       </ReviewsContainer>

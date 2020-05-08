@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React from 'react';
@@ -7,7 +8,8 @@ import Search from './Search';
 import RatingLevels from './RatingLevels';
 // eslint-disable-next-line import/extensions
 import {
-  StarRating, StarContainer, Header, TotalRating, AmountofReviews, LineBreak, VerticalLine,
+  StarRating, StarContainer, Header, TotalRating, AmountofReviews, LineBreak, VerticalLine, NoneFound,
+  SomeFound, Word, GoBack, Wrapper,
 } from '../style/OverviewStyle.js';
 
 
@@ -19,7 +21,17 @@ class Overview extends React.Component {
   }
 
   render() {
-    const { reviews } = this.props;
+    const {
+      reviews,
+      onSearch,
+      isSearching,
+      searchQuery,
+      hasReview,
+      length,
+      handleClick,
+      clicked,
+      displayedReviews,
+    } = this.props;
 
     let avgCheckin = 0;
     let avgCleanliness = 0;
@@ -57,6 +69,35 @@ class Overview extends React.Component {
 
     reviews.ratingAverage = total;
 
+    let guests = 'guests';
+    let have = 'have';
+
+    if (displayedReviews.length <= 1) {
+      guests = 'guest';
+      have = 'has';
+    }
+
+    const noReviews = (
+      <NoneFound>
+        None of our guests have mentioned
+        <Word>{searchQuery}</Word>
+        <GoBack>Back to all reviews</GoBack>
+      </NoneFound>
+    );
+
+    const someReviews = (
+      <SomeFound>
+        <Wrapper>
+          {` ${displayedReviews.length}
+            ${guests} ${have} mentioned `}
+          <Word>{`"${searchQuery}"`}</Word>
+        </Wrapper>
+        <GoBack>Back to all reviews</GoBack>
+      </SomeFound>
+    );
+
+    const searchResults = hasReview === false ? noReviews : someReviews;
+
     return (
       <div>
         <Header>
@@ -69,17 +110,30 @@ class Overview extends React.Component {
             {reviews.length}
           </AmountofReviews>
           reviews
-          <Search />
+          <Search onSearch={this.props.onSearch} />
         </Header>
         <LineBreak> </LineBreak>
-        <RatingLevels
+        {/* {hasReview === false ? none : some} */}
+        {isSearching === true ? searchResults
+          : (
+            <RatingLevels
+              avgCheckin={avgCheckin}
+              avgCleanliness={avgCleanliness}
+              avgCommunication={avgCommunication}
+              avgLocation={avgLocation}
+              avgAccuracy={avgAccuracy}
+              avgValue={avgValue}
+            />
+          )}
+
+        {/* <RatingLevels
           avgCheckin={avgCheckin}
           avgCleanliness={avgCleanliness}
           avgCommunication={avgCommunication}
           avgLocation={avgLocation}
           avgAccuracy={avgAccuracy}
           avgValue={avgValue}
-        />
+        /> */}
       </div>
     );
   }

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
@@ -26,9 +27,15 @@ class App extends React.Component {
 
     this.state = {
       reviews: [],
+      displayedReviews: [],
+      hasReview: null,
+      clicked: false,
+      isSearching: false,
     };
 
-    // this.getReviews = this.getReviews.bind(this);
+    this.onSearch = this.onSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
   componentDidMount() {
@@ -51,13 +58,84 @@ class App extends React.Component {
     }
   }
 
-  render() {
+  onSearch({ searchQuery }) {
+    const searchedReviews = [];
     const { reviews } = this.state;
+    // eslint-disable-next-line guard-for-in
+    for (const currentReview of reviews) {
+      if (currentReview.review.toLowerCase().includes(searchQuery.toLowerCase())) {
+        searchedReviews.push(currentReview);
+      }
+    }
+
+    this.setState({ searchQuery, isSearching: true });
+    if (searchedReviews.length >= 1) {
+      this.setState({ displayedReviews: searchedReviews });
+    } else {
+      this.setState({ hasReview: false });
+    }
+  }
+
+  handleClick() {
+    // const { reviews } = this.state;
+    // this.setState({
+    //   reviews,
+    // });
+    this.setState({ clicked: true });
+  }
+
+
+  render() {
+    const {
+      reviews,
+      displayedReviews,
+      hasReview,
+      searchQuery,
+      clicked,
+      isSearching,
+    } = this.state;
+
+    // if (displayedReviews.length >= 1) {
+    //   return (
+    //     <Container>
+    //       <Title>Reviews</Title>
+    //       <Overview onSearch={this.onSearch} reviews={reviews} />
+
+    //       <ReviewList
+    //         searchQuery={searchQuery}
+    //         hasSearchedReview={hasSearchedReview}
+    //         reviews={displayedReviews}
+    //         length={reviews.length}
+    //         handleClick={this.handleClick}
+    //         clicked={clicked}
+    //       />
+    //     </Container>
+    //   );
+    // }
     return (
       <Container>
         <Title>Reviews</Title>
-        <Overview reviews={reviews} />
-        <ReviewList reviews={reviews} />
+        <Overview
+          reviews={reviews}
+          onSearch={this.onSearch}
+          searchQuery={searchQuery}
+          hasReview={hasReview}
+          length={reviews.length}
+          handleClick={this.handleClick}
+          clicked={clicked}
+          displayedReviews={displayedReviews}
+          isSearching={isSearching}
+        />
+
+        <ReviewList
+          // searchQuery={searchQuery}
+          // hasSearchedReview={hasSearchedReview}
+          reviews={displayedReviews.length === 0 ? reviews : displayedReviews}
+        // length={reviews.length}
+        // handleClick={this.handleClick}
+        // clicked={clicked}
+        // displayedReviews={displayedReviews}
+        />
       </Container>
     );
   }
