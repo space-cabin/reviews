@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
@@ -15,9 +16,14 @@ const Title = styled.h2`
 
 const Container = styled.div`
   display: flex;
-  width: 50%;
+  width: auto;
   flex-direction: column;
   margin-left: 4%;
+  max-width: 696px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
 `;
 
 class App extends React.Component {
@@ -26,13 +32,17 @@ class App extends React.Component {
 
     this.state = {
       reviews: [],
+      displayedReviews: [],
+      hasReview: null,
+      clicked: false,
+      isSearching: false,
     };
 
-    // this.getReviews = this.getReviews.bind(this);
+    this.onSearch = this.onSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    // console.log(window.location.pathname);
     let listingId;
     const { pathname } = window.location;
 
@@ -51,13 +61,69 @@ class App extends React.Component {
     }
   }
 
-  render() {
+  onSearch({ searchQuery }) {
+    const searchedReviews = [];
+    const { reviews, hasReview } = this.state;
+    // eslint-disable-next-line guard-for-in
+    for (const currentReview of reviews) {
+      if (currentReview.review.toLowerCase().includes(searchQuery.toLowerCase())) {
+        searchedReviews.push(currentReview);
+      }
+    }
+
+    if (hasReview === false) {
+      this.setState({ hasReview: true });
+    }
+
+    this.setState({ searchQuery, isSearching: true });
+    if (searchedReviews.length >= 1) {
+      this.setState({ displayedReviews: searchedReviews });
+    } else {
+      this.setState({ hasReview: false });
+    }
+  }
+
+  handleClick(click) {
     const { reviews } = this.state;
+
+    const { isSearching } = this.state;
+    this.setState({
+      clicked: !click,
+      displayedReviews: reviews,
+      hasReview: null,
+      isSearching: !isSearching,
+    });
+  }
+
+  render() {
+    const {
+      reviews,
+      displayedReviews,
+      hasReview,
+      searchQuery,
+      clicked,
+      isSearching,
+    } = this.state;
+
     return (
       <Container>
         <Title>Reviews</Title>
-        <Overview reviews={reviews} />
-        <ReviewList reviews={reviews} />
+        <Overview
+          reviews={reviews}
+          onSearch={this.onSearch}
+          searchQuery={searchQuery}
+          hasReview={hasReview}
+          length={reviews.length}
+          handleClick={this.handleClick}
+          clicked={clicked}
+          displayedReviews={displayedReviews}
+          isSearching={isSearching}
+        />
+
+        <ReviewList
+          hasReview={hasReview}
+          reviews={displayedReviews.length === 0 ? reviews : displayedReviews}
+        />
       </Container>
     );
   }

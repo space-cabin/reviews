@@ -11,7 +11,7 @@ const generateReviews = () => {
   let count = 0;
   for (let i = 0; i < 100; i += 1) {
     const min = 3;
-    const max = 8;
+    const max = 7;
     const rand = Math.floor(Math.random() * (max - min) + min);
     for (let j = 0; j <= rand; j += 1) {
       const user = faker.name.firstName();

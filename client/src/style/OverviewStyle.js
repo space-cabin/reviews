@@ -5,8 +5,9 @@ import { Search } from '@styled-icons/evil/Search';
 import { Star } from '@styled-icons/entypo/Star';
 
 export const SearchIcon = styled(Search)`
-  width: 13px;
-  color: rgb(170, 170, 170);
+  width: 18px;
+  // color: rgb(170, 170, 170);
+  color: rgb(72, 72, 72) !important;
 `;
 
 export const StarRating = styled(Star)`
@@ -34,14 +35,56 @@ export const Header = styled.div`
   margin: 0px !important;
 `;
 
+export const NoneFound = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  overflow-wrap: break-word !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
+  line-height: 1.28571em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+`;
+
+export const SomeFound = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  overflow-wrap: break-word !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
+  line-height: 1.28571em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+`;
+export const Word = styled.span`
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  padding-left: 4px;
+`;
+
+export const GoBack = styled.a`
+  color: #008489 ;
+  font-family: var(--font-font_family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+  cursor: pointer;
+}
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+export const Container = styled.div`
+  display: flex;
+`;
+
+
 // RATING
 export const RatingContainer = styled.div`
   display:flex;
   flex-direction: column;
-  // border: 2px solid black;
   margin: 0px;
-  width: 40.6em;
-
 `;
 
 export const TotalRating = styled.div`
@@ -63,6 +106,9 @@ export const LineBreak = styled.div`
   border-bottom-width: 1px !important;
   border-bottom-color: #EBEBEB !important;
   border-bottom-style: solid !important;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
 `;
 
 // SEARCH
@@ -104,15 +150,15 @@ export const SearchButton = styled.button`
 `;
 
 export const SearchForm = styled.form`
-  border-width: 1px !important;
-  border-style: initial !important;
-  border-color: #EBEBEB !important;
-  width: 76vh;
-  padding: 5px;
-  margin: 0em;
-  font: 400 11px system-ui;
-  padding: 1px 7px 2px;
-  margin-left: 43%;
+border-width: 1px !important;
+border-style: initial !important;
+border-color: #EBEBEB !important;
+width: 100%;
+padding: 5px;
+margin: 0em;
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-end;
 `;
 
 // PROGRESS BAR
@@ -144,13 +190,20 @@ export const ProgressStatus = styled(BaseBox)`
 `;
 
 // TABLE
-export const table6Cols = styled.div`
+export const Table6Cols = styled.div`
+  // display: flex;
+  // flex-wrap: wrap;
+  // font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  // margin: 0 0 3em 0;
+  // padding: 0;
+  width: 117%;
+
   display: flex;
-  flex-wrap: wrap;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-  margin: 0 0 3em 0;
-  padding: 0;
-  width: 16.6%;
+  flex-direction: column;
+  display: inline-flex;
+  flex-flow: wrap;
+  // margin-right: -100px;
+  align-items: center;
 `;
 
 export const RtableCell = styled.div`
