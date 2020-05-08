@@ -34,8 +34,7 @@ class ReviewList extends React.Component {
     // if (hasReview === false) {
     //   return (
     //     <div>
-    //       {`None of our guests have mentioned ${searchQuery}`}
-    //       <button type="button" onClick={handleClick}>Back to all reviews</button>
+
     //     </div>
     //   );
     // }
@@ -60,14 +59,16 @@ class ReviewList extends React.Component {
     //     </ReviewsContainer>
     //   );
     // }
-
-    return (
-      <ReviewsContainer>
-        {
-          reviews.map((review) => <Review key={review._id} review={review} />)
-        }
-      </ReviewsContainer>
-    );
+    if (hasReview !== false) {
+      return (
+        <ReviewsContainer>
+          {
+            reviews.map((review) => <Review key={review._id} review={review} />)
+          }
+        </ReviewsContainer>
+      );
+    }
+    return (<div />);
   }
 }
 

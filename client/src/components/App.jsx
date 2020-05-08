@@ -94,7 +94,7 @@ class App extends React.Component {
 
     console.log('made it')
     // const {clicked} = this.state;
-    this.setState({ clicked: !click, displayedReviews: reviews });
+    this.setState({ clicked: !click, displayedReviews: reviews, hasReview: null });
   }
 
 
@@ -141,13 +141,13 @@ class App extends React.Component {
         />
 
         <ReviewList
-          // searchQuery={searchQuery}
-          // hasSearchedReview={hasSearchedReview}
+          searchQuery={searchQuery}
+          hasReview={hasReview}
           reviews={displayedReviews.length === 0 ? reviews : displayedReviews}
         // length={reviews.length}
-        // handleClick={this.handleClick}
-        // clicked={clicked}
-        // displayedReviews={displayedReviews}
+        handleClick={this.handleClick}
+        clicked={clicked}
+        displayedReviews={displayedReviews}
         />
       </Container>
     );
