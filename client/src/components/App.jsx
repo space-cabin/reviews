@@ -16,7 +16,7 @@ const Title = styled.h2`
 
 const Container = styled.div`
   display: flex;
-  width: 50%;
+  width: auto;
   flex-direction: column;
   margin-left: 4%;
 `;

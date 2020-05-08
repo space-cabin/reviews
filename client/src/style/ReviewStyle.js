@@ -44,13 +44,11 @@ export const Post = styled.div`
   line-height: 1.375em !important;
   color: rgb(72, 72, 72) !important;
   margin-bottom: 2%;
-  padding: 5px;
   margin: 0px !important;
 `;
 
 export const PostContainer = styled.div`
   overflow-wrap: break-word !important;
-  padding: 16px;
   margin: 0px !important;
 `;
 
@@ -68,9 +66,6 @@ export const NameandDateContainer = styled.div`
 export const ReviewsContainer = styled.div`
   display:flex;
   flex-direction: column;
-
-  padding:5%;
-
 `;
 
 export const LineBreak = styled.div`

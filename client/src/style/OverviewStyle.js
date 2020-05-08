@@ -6,7 +6,8 @@ import { Star } from '@styled-icons/entypo/Star';
 
 export const SearchIcon = styled(Search)`
   width: 18px;
-  color: rgb(170, 170, 170);
+  // color: rgb(170, 170, 170);
+  color: rgb(72, 72, 72) !important;
 `;
 
 export const StarRating = styled(Star)`
