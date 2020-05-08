@@ -153,15 +153,15 @@ export const SearchButton = styled.button`
 `;
 
 export const SearchForm = styled.form`
-  border-width: 1px !important;
-  border-style: initial !important;
-  border-color: #EBEBEB !important;
-  width: 76vh;
-  padding: 5px;
-  margin: 0em;
-  font: 400 11px system-ui;
-  padding: 1px 7px 2px;
-  margin-left: 43%;
+border-width: 1px !important;
+border-style: initial !important;
+border-color: #EBEBEB !important;
+width: 100%;
+padding: 5px;
+margin: 0em;
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-end;
 `;
 
 // PROGRESS BAR

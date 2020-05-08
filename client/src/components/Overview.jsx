@@ -121,8 +121,8 @@ class Overview extends React.Component {
         </Header>
         <LineBreak> </LineBreak>
         {/* if clicked is true then render ratinglevels  */}
-        {clicked === true ?
-        (
+        {clicked === true
+        ? (
           <RatingLevels
             avgCheckin={avgCheckin}
             avgCleanliness={avgCleanliness}
@@ -131,7 +131,7 @@ class Overview extends React.Component {
             avgAccuracy={avgAccuracy}
             avgValue={avgValue}
           />
-        ) : false }
+        ) : true }
         {/* if the user searched then show the results otherwise display rating levels */}
         {isSearching === true ? searchResults
           : (
