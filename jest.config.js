@@ -8,6 +8,11 @@ module.exports = {
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
+  // An array of glob patterns indicating a set of files for which coverage information should be collected
+  collectCoverageFrom: [
+    "**/client/src/components/*.{js,jsx}",
+  ],
+
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
 
@@ -20,16 +25,6 @@ module.exports = {
   // reported during the run
   verbose: true,
 
-
-  // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
-
-  // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
     'node_modules',
   ],

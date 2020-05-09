@@ -71,7 +71,7 @@ class App extends React.Component {
       }
     }
 
-    if (hasReview === false) {
+    if (!hasReview) {
       this.setState({ hasReview: true });
     }
 

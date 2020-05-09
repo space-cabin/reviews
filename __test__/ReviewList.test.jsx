@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import ReviewList from '../client/src/components/ReviewList';
 import Review from '../client/src/components/Review';
@@ -52,7 +52,7 @@ const sampleReviews = [
   },
 ];
 
-test('should render 3 Review components', () => {
+it('should render 3 Review components', () => {
   const wrapper = shallow(<ReviewList reviews={sampleReviews} />);
   expect(wrapper.find(Review)).toHaveLength(3);
 });
