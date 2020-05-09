@@ -11,7 +11,7 @@ const avgLocation = 3.7;
 const avgAccuracy = 3.0;
 const avgValue = 1.9;
 
-test('should render 1 Rating component on the screen', () => {
+it('should render 1 Rating component on the screen', () => {
   const wrapper = shallow(
     <RatingLevels
       avgCheckin={avgCheckin}

@@ -1,11 +1,10 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import { shallow, mock } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import App from '../client/src/components/App';
 import Overview from '../client/src/components/Overview';
 import RatingLevels from '../client/src/components/RatingLevels';
-import Review from '../client/src/components/Review';
 import { GoBack } from '../client/src/style/OverviewStyle';
 
 import reviews from './mockReviews';
