@@ -3,7 +3,6 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 
-
 import Search from './Search';
 import RatingLevels from './RatingLevels';
 // eslint-disable-next-line import/extensions
@@ -92,19 +91,19 @@ class Overview extends React.Component {
           None of our guests have mentioned
           <Word>{`"${searchQuery}"`}</Word>
         </Wrapper>
-        <GoBack onClick={() => handleClick(clicked)}>Back to all reviews</GoBack>
+        <GoBack className="back-btn" onClick={() => handleClick(clicked)}>Back to all reviews</GoBack>
       </NoneFound>
     );
 
     const someReviews = (
       <div>
-        <SomeFound>
+        <SomeFound className="some-found">
           <Wrapper>
             {`${displayedReviews.length}
               ${guests} ${have} mentioned `}
             <Word>{`"${searchQuery}"`}</Word>
           </Wrapper>
-          <GoBack onClick={() => handleClick(clicked)}>Back to all reviews</GoBack>
+          <GoBack className="back-btn" onClick={() => handleClick(clicked)}>Back to all reviews</GoBack>
         </SomeFound>
         <LineBreak> </LineBreak>
       </div>

@@ -47,14 +47,14 @@ class Search extends React.Component {
     return (
       <SearchForm>
         <SearchInnerWrapper>
-          <SearchReviews
+          <SearchReviews className="search-text"
             name="searchQuery"
             value={searchQuery}
             type="text"
             placeholder="Search reviews"
             onChange={this.handleChange}
           />
-          <SearchButton onClick={this.handleSearch}>
+          <SearchButton className="search-btn" onClick={this.handleSearch}>
             <SearchIcon />
           </SearchButton>
         </SearchInnerWrapper>
