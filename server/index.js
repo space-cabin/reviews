@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/:id', express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/', (req, res) => {
-  res.redirect(301, 'http://localhost:4007/index.html');
+  res.redirect(301, `http://localhost:${PORT}/index.html`);
 });
 
 app.get('/listing/:listingId', (req, res) => {
