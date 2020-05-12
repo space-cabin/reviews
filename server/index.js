@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
   res.redirect(301, `http://localhost:${PORT}/index.html`);
 });
 
-app.get('/listing/:listingId', (req, res) => {
+app.get('/reviews/:listingId', (req, res) => {
   db.Review.find({ listingId: req.params.listingId })
     .then((data) => {
       res.send(data);

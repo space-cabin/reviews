@@ -53,7 +53,7 @@ class App extends React.Component {
     }
 
     if (Number(listingId) !== 'NaN') {
-      axios.get(`/listing/${listingId}`)
+      axios.get(`/reviews/${listingId}`)
         .then(({ data }) => {
           this.setState({ reviews: data });
         })
