@@ -18,7 +18,7 @@ const Container = styled.div`
   display: flex;
   width: auto;
   flex-direction: column;
-  margin-left: 4%;
+  // margin-left: 4%;
   max-width: 696px !important;
   // margin-left: auto !important;
   // margin-right: auto !important;
