@@ -46,12 +46,12 @@ const generateReviews = () => {
         .then(() => {
           if (count === 99) db.disconnect();
         })
-        .catch((err) => console.log('err: ', err))
         // eslint-disable-next-line no-loop-func
-        .finally(() => {
+        .then(() => {
           count += 1;
           if (count === 99) db.disconnect();
-        });
+        })
+        .catch((err) => console.log('err: ', err));
     }
   }
 };

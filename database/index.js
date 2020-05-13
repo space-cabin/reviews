@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/reviews');
+mongoose.connect('mongodb://database/reviews');
 const db = mongoose.connection;
 // eslint-disable-next-line no-unused-vars
 db.on('error', (err) => console.log(':('));
