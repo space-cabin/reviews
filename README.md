@@ -8,7 +8,7 @@ UI clone of Airbnb Reviews module
 npm install
 
 npm start
-npm run server
+npm run build
 
 
 ## Running the tests
