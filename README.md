@@ -1,5 +1,5 @@
 # Kayla-Service-Reviews
-Descrption:
+
 Open-source room reservation application 
 
 
