@@ -1,4 +1,4 @@
-# Kayla-Service-Reviews
+# Reviews Module
 ## Description
 Open-source room reservation application 
 
