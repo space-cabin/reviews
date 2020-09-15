@@ -1,4 +1,5 @@
 const path = require('path');
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'client/src/index.jsx'),
@@ -6,6 +7,12 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
+  plugins: [
+    new BrotliPlugin({
+      asset: '[file].br',
+      test: /\.(js)$/,
+    }),
+  ],
   module: {
     rules: [
       {
@@ -15,7 +22,7 @@ module.exports = {
       },
     ],
   },
-  mode: 'development',
+  mode: 'production',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
