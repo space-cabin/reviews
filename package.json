@@ -19,6 +19,7 @@
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "lodash": "^4.17.20",
     "mongo-seed-faker": "^1.0.3",
     "mongoose": "^5.9.11",
     "react": "^16.13.1",
@@ -31,6 +32,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
+    "brotli-webpack-plugin": "^1.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -42,6 +44,7 @@
     "jest": "^25.5.4",
     "jest-environment-enzyme": "^7.1.1",
     "jest-enzyme": "^7.1.1",
+    "nodemon": "^2.0.4",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }

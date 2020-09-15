@@ -8,6 +8,16 @@ const PORT = 4007;
 
 app.use(express.json());
 
+app.get('*.js', (req, res, next) => {
+  if (req.header('Accept-Encoding').includes('br')) {
+    req.url += '.br';
+    // req.url = req.url + '.br';
+    console.log(req.header('Accept-Encoding'));
+    res.set('Content-Encoding', 'br');
+  }
+  next();
+});
+
 app.use('/:id', express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/', (req, res) => {
