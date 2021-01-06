@@ -16,7 +16,7 @@
   "dependencies": {
     "@styled-icons/material": "^10.0.0",
     "aws-sdk": "^2.667.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "lodash": "^4.17.20",
